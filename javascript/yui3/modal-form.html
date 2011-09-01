@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<script src="http://yui.yahooapis.com/3.4.0/build/yui/yui-min.js"></script>
+		<style type='text/css'>
+			.yui3-js-enabled .yui3-widget-loading {display: none;}
+			#panel .yui3-widget-bd {text-align: center;}
+			#panel .yui3-widget-ft {text-align: center;}
+			#panel .yui3-widget-ft .yui3-widget-button-wrapper {position: static;}
+		</style>
+	</head>
+	<body class='yui3-skin-sam'>
+		<!-- Panel -->
+		<div id='panel' class='yui3-widget-loading'>
+			<div class='yui3-widget-hd'>
+				Borrar el producto
+			</div>
+			<div class='yui3-widget-bd'>
+				¿Desea eliminar el producto de la lista?
+			</div>
+		</div>
+		
+		<button id='panel-trigger'>Abrir panel</button>
+		<div id='response'></div>
+		
+		<script>
+			YUI().use('panel', function (Y) {
+				// Create Panel
+				var panel = new Y.Panel({
+					srcNode: '#panel',
+					width: 300,
+					centered: true,
+					zIndex: 5,
+					visible: false,
+					buttons: [
+						{
+							value: 'Sí',
+							action: function(e) {
+								e.preventDefault();
+								panel.hide();
+								
+								Y.one('#response').setContent('Aceptó');
+							},
+							section: Y.WidgetStdMod.FOOTER
+						},
+						{
+							value: 'No',
+							action: function(e) {
+								e.preventDefault();
+								panel.hide();
+								
+								Y.one('#response').setContent('Canceló');
+							},
+							section: Y.WidgetStdMod.FOOTER
+						}
+					]
+				});
+				panel.render();
+				
+				// Open panel on button click
+				var panelTrigger = Y.one('#panel-trigger');
+				panelTrigger.on('click', function(e) {
+					panel.set('centered', true);
+					panel.show();
+				});
+			});
+		</script>
+	</body>
+</html>

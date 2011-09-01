@@ -1,0 +1,37 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<!--
+		<script src='app.js'></script>
+		<link rel='stylesheet' type='text/css' href='' />
+		-->
+		<style type='text/css'>
+			.circle {
+				position: absolute;
+				width: 50px; 
+				height: 50px; 
+				border-radius: 50px; 
+				background: purple;
+				left: 0;
+				top: 0;
+				-webkit-animation-name: move;
+				-webkit-animation-duration: 4s;
+				-webkit-animation-fill-mode: forwards;
+			}
+			@-webkit-keyframes move {
+				50% {
+					left: 300px;
+					top: 300px;
+				}
+				100% {
+					left: 600px;
+					top: 0px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div class='circle'></div>
+	</body>
+</html>

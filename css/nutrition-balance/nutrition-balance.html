@@ -1,0 +1,35 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<style type='text/css'>
+			#doc {width: 500px; margin: 50px auto 0;}
+			#objects {display: block; -webkit-transform-origin: 50% 100%; -webkit-animation: 'balancing' 10s 0 3;}
+			#base {display: block; position: relative; left: 25px;}
+			#hour-hand {position: absolute; top: 50px; left: 50px; width: 45px; height: 2px; background: #BDBDBD; -webkit-transform-origin: left top; -webkit-animation: 'tick' 10s infinite;}
+			@-webkit-keyframes balancing {
+				0% {
+					-webkit-transform: rotate(0deg);
+				}
+				25% {
+					-webkit-transform: rotate(30deg);
+				}
+				50% {
+					-webkit-transform: rotate(0deg);
+				}
+				75% {
+					-webkit-transform: rotate(-30deg);
+				}
+				100% {
+					-webkit-transform: rotate(0deg);
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<div id='doc'>
+			<img id='objects' src='objects.png' />
+			<img id='base' src='base.png' />
+		</div>
+	</body>
+</html>

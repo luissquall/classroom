@@ -1,0 +1,40 @@
+<!DOCTYPE>
+<html>
+	<head>
+		<meta charset='utf-8' />
+		<!--
+		<script src='app.js'></script>
+		<link rel='stylesheet' type='text/css' href='' />
+		-->
+		<style type='text/css'>
+		</style>
+	</head>
+	<body>
+		<img id='canvas-src' src='./coloured-project.jpg' />
+		<canvas id='bw-image' width='236' height='147'></canvas>
+
+		<script type='text/javascript'>
+		
+			function draw() {
+				
+			}
+			window.onload = function() {
+				var canvas = document.getElementById('bw-image');
+				var image = document.getElementById('canvas-src');
+				var context = canvas.getContext('2d');
+
+				context.drawImage(image, 0, 0);
+				var imageData = context.getImageData(0, 0, 236, 147);
+				var pixels = imageData.data;
+				for (var i = 0, n = pixels.length; i < n; i += 4) {
+					var grayscale = pixels[i] * .3 + pixels[i+1] * .59 + pixels[i+2] * .11;
+					pixels[i] = grayscale; //red  
+					pixels[i+1] = grayscale; //green
+					pixels[i+2] = grayscale; //blue 
+					//alpha
+				}
+				context.putImageData(imageData, 0, 0);
+			}
+		</script>
+	</body>
+</html>
